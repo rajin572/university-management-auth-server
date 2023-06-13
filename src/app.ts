@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('University Management Server Auth System connected')
+  res.send('University Management Auth System Server connected')
 })
 
 export default app
