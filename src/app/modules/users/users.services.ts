@@ -6,9 +6,7 @@ import { User } from './users.model'
 // ---------------------- Function to create a user ----------------------------
 const createUser = async (user: IUser): Promise<IUser | null> => {
   //Auto genarated ID
-
   const id = await genarateUserID()
-
   user.id = id
 
   //Check password if user dosen't defind password then set the default password
@@ -20,7 +18,7 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   const userData = await User.create(user)
 
   //if the userData give us a error then it will throw a error
-  if (!userData) {
+  if (!createUser) {
     throw new Error('Failed to create user')
   }
   return userData
