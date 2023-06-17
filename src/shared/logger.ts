@@ -26,7 +26,7 @@ const logger = createLogger({
         'successes',
         'phu-%DATE%-success.log'
       ),
-      datePattern: 'YYYY-DD-MM-HH',
+      datePattern: 'DD-MM-YYYY',
       zippedArchive: true,
       maxSize: '50m',
       maxFiles: '1d',
@@ -46,9 +46,9 @@ const errorLogger = createLogger({
         'errors',
         'phu-%DATE%-error.log'
       ),
-      datePattern: 'YYYY-DD-MM-HH',
+      datePattern: 'DD-MM-YYYY',
       zippedArchive: true,
-      maxSize: '20m',
+      maxSize: '50m',
       maxFiles: '1d',
     }),
   ],
