@@ -1,7 +1,8 @@
 import express, { Application } from 'express'
 import cors from 'cors'
-import router from './app/modules/users/users.route'
+import { UserRouter } from './app/modules/users/user.route'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
+// import ApiError from './error/ApiError'
 const app: Application = express()
 
 //cors
@@ -11,15 +12,14 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   // res.send('University Management Auth System Server connected')
-//   throw new ApiError(400, 'oreh Allah')
-//   // next('orehhh')
-// })
-
 //Application Router
 
-app.use('/api/v1/users', router)
+app.use('/api/v1/users', UserRouter)
+
+//Testing
+// app.get('/', (req: Request, res: Response, next: NextFunction) => {
+//   throw new ApiError(400, ' Error lagce re')
+// })
 
 //global error handeler
 
