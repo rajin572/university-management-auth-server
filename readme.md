@@ -11,6 +11,7 @@
 9. yarn add -D @types/cors
 10. yarn add ts-node-dev --dev
 11. yarn add winston
+12. yarn add zod
 
 <h3>Error Handling</h3>
 1. extends an class from Error <br/>

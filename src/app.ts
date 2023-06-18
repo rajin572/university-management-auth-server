@@ -19,10 +19,10 @@ app.use('/api/v1/users', UserRouter)
 
 // Testing
 // app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   res.send('University Management Application Auth system')
+//   // res.send('University Management Application Auth system')
 //   // Promise.reject(new Error('Error lagce re'))
 //   // console.log(x)
-//   // throw new ApiError(400, 'khaice re')
+//   throw new ApiError(400, 'khaice re')
 //   // next('c')
 // })
 

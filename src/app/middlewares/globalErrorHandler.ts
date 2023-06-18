@@ -25,7 +25,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages = error?.message
       ? [
           {
-            path: '',
+            path: 'ApiError',
             message: error?.message,
           },
         ]
@@ -34,7 +34,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages = error?.message
       ? [
           {
-            path: '',
+            path: 'Error',
             message: error?.message,
           },
         ]
