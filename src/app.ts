@@ -1,4 +1,5 @@
 import express, { Application } from 'express'
+// import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import { UserRouter } from './app/modules/users/user.route'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
@@ -16,9 +17,13 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/v1/users', UserRouter)
 
-//Testing
+// Testing
 // app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   throw new ApiError(400, ' Error lagce re')
+//   res.send('University Management Application Auth system')
+//   // Promise.reject(new Error('Error lagce re'))
+//   // console.log(x)
+//   // throw new ApiError(400, 'khaice re')
+//   // next('c')
 // })
 
 //global error handeler

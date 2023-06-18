@@ -33,8 +33,9 @@ const logger = createLogger({
     }),
   ],
 })
+
 const errorLogger = createLogger({
-  level: 'erroe',
+  level: 'error',
   format: combine(label({ label: 'Dev Rajin' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
