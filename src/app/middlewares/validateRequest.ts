@@ -3,7 +3,7 @@ import { AnyZodObject } from 'zod'
 
 const ValidateRequest =
   (schema: AnyZodObject) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       // req-validation
       await schema.parseAsync({
