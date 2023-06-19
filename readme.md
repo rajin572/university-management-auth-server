@@ -11,7 +11,6 @@
 9. yarn add -D @types/cors
 10. yarn add ts-node-dev --dev
 11. yarn add winston
-12. yarn add zod
 
 <h3>Error Handling</h3>
 1. extends an class from Error <br/>
@@ -21,3 +20,14 @@
 4. if there ar async error then the server will cursh to handle it we need to run unhandledRejection process. <br/>
 5. if there is an uncaughtException error we need to run uncaughtException process. <br/>
 6. and also we need to run SIGTERM process. <br/>
+
+<br/>
+<h3>Zod</h3>
+
+If we want to set our security to a next level then we need to provide an extra security layer in the application. By using Zod we can check our requests before the mongoose check it.
+
+1. yarn add zod <br/>
+2. Then we need to check our validation from the routes for that we need to create an middleware to check it. if the middleware dosen't throw any error then it will return the next function and call the next middleware. <br/>
+3. at first create an schema to check the request is valid <br/>
+4. create an middleware and pass the schema as a parameter into the function. <br/>
+5.
