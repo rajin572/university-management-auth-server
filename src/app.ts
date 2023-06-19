@@ -1,21 +1,21 @@
-import express, { Application } from 'express'
+import express, { Application } from 'express';
 // import express, { Application, NextFunction, Request, Response } from 'express'
-import cors from 'cors'
-import { UserRouter } from './app/modules/user/user.route'
-import globalErrorHandler from './app/middlewares/globalErrorHandler'
+import cors from 'cors';
+import { UserRouter } from './app/modules/user/user.route';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
 // import ApiError from './error/ApiError'
-const app: Application = express()
+const app: Application = express();
 
 //cors
-app.use(cors())
+app.use(cors());
 
 //parser
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Application Router
 
-app.use('/api/v1/users', UserRouter)
+app.use('/api/v1/users', UserRouter);
 
 // Testing
 // app.get('/', (req: Request, res: Response, next: NextFunction) => {
@@ -28,6 +28,6 @@ app.use('/api/v1/users', UserRouter)
 
 //global error handeler
 
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
-export default app
+export default app;
