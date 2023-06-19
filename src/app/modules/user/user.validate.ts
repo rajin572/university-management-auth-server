@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
 const createZodSchema = z.object({
   body: z.object({
@@ -6,8 +6,8 @@ const createZodSchema = z.object({
       required_error: 'role is require',
     }),
   }),
-})
+});
 
 export const UserValidate = {
   createZodSchema,
-}
+};
