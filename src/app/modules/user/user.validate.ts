@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const createZodSchema = z.object({
+const createUserZodSchema = z.object({
   body: z.object({
     role: z.string({
       required_error: 'role is require',
@@ -9,5 +9,5 @@ const createZodSchema = z.object({
 });
 
 export const UserValidate = {
-  createZodSchema,
+  createUserZodSchema,
 };

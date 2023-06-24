@@ -9,8 +9,8 @@ import handleZodError from '../../error/handleZodError';
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   config.env === 'development'
-    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
-    : errorLogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
+    ? console.log(`🐱‍🏍 globalErrorHandler ~~ without logger`, { error })
+    : errorLogger.error(`globalErrorHandler ~~ with logger`, error);
 
   let statusCode = 500;
   let message = 'Something Went Wrong';
