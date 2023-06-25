@@ -1,6 +1,16 @@
-import { RequestHandler } from 'express';
-import { UserServices } from './user.services';
+import { Request, RequestHandler, Response } from 'express';
+import { UserServices, getUsersFromDB } from './user.services';
 
+//Get Users
+const getUsers = async (req: Request, res: Response) => {
+  const users = await getUsersFromDB();
+  res.status(200).json({
+    status: 200,
+    data: users,
+  });
+};
+
+//Create User
 const createUserToDB: RequestHandler = async (req, res, next) => {
   try {
     const user = req.body;
@@ -18,4 +28,5 @@ const createUserToDB: RequestHandler = async (req, res, next) => {
 
 export const UserController = {
   createUserToDB,
+  getUsers,
 };

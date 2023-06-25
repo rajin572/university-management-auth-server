@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import { UserRouter } from './app/modules/user/user.route';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import { AcademicSemisterRouter } from './app/modules/academicSemister/academicSemister.router';
 // import ApiError from './error/ApiError'
 const app: Application = express();
 
@@ -14,8 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Application Router
-
 app.use('/api/v1/users', UserRouter);
+app.use('/api/v1/academic-semister', AcademicSemisterRouter);
 
 // Testing
 // app.get('/', (req: Request, res: Response, next: NextFunction) => {

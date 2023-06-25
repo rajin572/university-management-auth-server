@@ -5,6 +5,10 @@ import ValidateRequest from '../../middlewares/validateRequest';
 
 const router = express.Router();
 
+//Get All Users
+router.get('/', UserController.getUsers);
+
+//Create Users
 router.post(
   '/create-user',
   ValidateRequest(UserValidate.createUserZodSchema),
