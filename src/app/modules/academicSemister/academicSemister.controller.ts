@@ -1,8 +1,11 @@
-import { Request, RequestHandler, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import {
   AcademicSemisterServices,
   getSemistersFromDB,
 } from './academicSemister.services';
+import catchAsync from '../../../shared/catchAsync';
+import httpStatus from 'http-status';
+import sendResponse from '../../../shared/sendResponse';
 
 //Get Users
 const getSemisters = async (req: Request, res: Response) => {
@@ -14,20 +17,19 @@ const getSemisters = async (req: Request, res: Response) => {
 };
 
 //Create Academic Semister
-const createAcademicSemisterToDB: RequestHandler = async (req, res, next) => {
-  try {
+const createAcademicSemisterToDB = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const semister = req.body;
     const result = await AcademicSemisterServices.createSemister(semister);
-
-    res.status(201).json({
+    next();
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
       success: true,
-      message: 'Semister created successfully',
+      message: 'Semister created successfully!',
       data: result,
     });
-  } catch (err) {
-    next(err);
   }
-};
+);
 
 export const AcademicSemisterController = {
   createAcademicSemisterToDB,

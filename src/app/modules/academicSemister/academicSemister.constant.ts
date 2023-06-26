@@ -24,3 +24,11 @@ export const AcademicSemisterTitle: IAcademicSemisterTitle[] = [
   'Fall',
 ];
 export const AcademicSemisterCode: IAcademicSemisterCode[] = ['01', '02', '03'];
+
+export const academicSemisterTitleCodeMapper: {
+  [key: string]: string;
+} = {
+  Autumn: '01',
+  Summar: '02',
+  Fall: '03',
+};

@@ -1,9 +1,8 @@
-import express, { Application } from 'express';
+import express, { Application, Request, Response } from 'express';
 // import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors';
-import { UserRouter } from './app/modules/user/user.route';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
-import { AcademicSemisterRouter } from './app/modules/academicSemister/academicSemister.router';
+import routers from './app/routes/routes';
 // import ApiError from './error/ApiError'
 const app: Application = express();
 
@@ -15,17 +14,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Application Router
-app.use('/api/v1/users', UserRouter);
-app.use('/api/v1/academic-semister', AcademicSemisterRouter);
+app.use('/api/v1', routers);
 
-// Testing
-// app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   // res.send('University Management Application Auth system')
-//   // Promise.reject(new Error('Error lagce re'))
-//   // console.log(x)
-//   throw new ApiError(400, 'khaice re')
-//   // next('c')
-// })
+// Default Route
+app.get('/', (req: Request, res: Response) => {
+  res.send('University Management Application Auth system');
+});
 
 //global error handeler
 
