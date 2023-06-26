@@ -22,7 +22,6 @@
 4. if there ar async error then the server will cursh to handle it we need to run unhandledRejection process. <br/>
 5. if there is an uncaughtException error we need to run uncaughtException process. <br/>
 6. and also we need to run SIGTERM process. <br/>
-
 <br/>
 
 <h3>-----------Zod-------------</h3>
