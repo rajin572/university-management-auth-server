@@ -21,13 +21,13 @@ const createAcademicSemisterToDB = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const semister = req.body;
     const result = await AcademicSemisterServices.createSemister(semister);
-    next();
     sendResponse(res, {
       statusCode: httpStatus.CREATED,
       success: true,
       message: 'Semister created successfully!',
       data: result,
     });
+    next();
   }
 );
 

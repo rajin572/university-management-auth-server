@@ -18,13 +18,13 @@ const createUserToDB = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const user = req.body;
     const result = await UserServices.createUser(user);
-    next();
     sendResponse(res, {
       statusCode: httpStatus.CREATED,
       success: true,
       message: 'user created successfully!',
       data: result,
     });
+    next();
   }
 );
 
