@@ -15,8 +15,6 @@
 <br/>
 
 <h3>------------Error Handling----------</h3>
-
-<h3>------------Error Handling----------</h3>
 1. extends an class from Error <br/>
 2. crate an globalErrorHandler fucntion and use it on app.js. use it using api.use(globalErrorHandler) <br/>
 3. now check the error in globar error handler and check (validationError, ApiError(created by entend classes), Error) if error occared then send the status code and massage by manualy and send the errorMassage(which returns two value errorMassage and stack) .To send the error massage dynamicly  create diffrent handlers for all error like( validation, Zod validation error ).  <br/>
@@ -35,5 +33,3 @@ If we want to set our security to a next level then we need to provide an extra 
 2. Create an zod request fuction (which thake an perameter) and zodSchema
 3. we need to check our validation from the routes for that we need to pass the zod request fuction as a middleware and pass the zodSchema as a perameter to check it. if the middleware dosen't throw any error then it will return the next function and call the next middleware. <br/>
 4. If the middleware throw any error then we need to handle it using globalError handler <br/>
-5. <br/>
-6.
