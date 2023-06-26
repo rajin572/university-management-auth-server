@@ -25,14 +25,17 @@ async function bootstrap() {
   }
 
   process.on('unhandledRejection', error => {
-    console.log('Unhandled error caught', error);
     errorLogger.error('Unhandled error caught', error);
     if (server) {
+      errorLogger.error('Serrver Running but crused');
       server.close(() => {
         errorLogger.error(error);
+        errorLogger.error('Server Closed');
+
         process.exit(1);
       });
     } else {
+      errorLogger.error('Serrver Closed');
       process.exit(1);
     }
   });

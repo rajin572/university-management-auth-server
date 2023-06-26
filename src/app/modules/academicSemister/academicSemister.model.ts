@@ -8,6 +8,9 @@ import {
   AcademicSemisterMonths,
   AcademicSemisterTitle,
 } from './academicSemister.constant';
+import ApiError from '../../../error/ApiError';
+
+import status from 'http-status';
 
 const AcademicSemisterSchema = new Schema<IAcademicSemister>(
   {
@@ -22,7 +25,19 @@ const AcademicSemisterSchema = new Schema<IAcademicSemister>(
   }
 );
 
+//Handle Academic Semister is exist or not
+AcademicSemisterSchema.pre('save', async function (next) {
+  const isExits = await AcademicSemister.findOne({
+    title: this.title,
+    year: this.year,
+  });
+  if (isExits) {
+    throw new ApiError(status.CONFLICT, 'Academic Semister Alreday Exist !');
+  }
+  next();
+});
+
 export const AcademicSemister = model<IAcademicSemister, AcademicSemisterModel>(
-  ' AcademicSemister',
+  'AcademicSemister',
   AcademicSemisterSchema
 );
